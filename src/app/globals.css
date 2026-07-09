@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @import "@heroui/styles"; 
+
+@theme {
+  --color-brand-50: #fff4e6;
+  --color-brand-100: #ffefda;
+  --color-brand-200: #ffdeb2;
+  --color-brand-400: #ff9505;
+  --color-brand-500: #e68605;
+  --color-brand-600: #cc7704;
+  --color-brand-700: #bf7004;
+  --color-brand-800: #995903;
+  --color-brand-900: #734302;
+  --color-brand-950: #593402;
+}
