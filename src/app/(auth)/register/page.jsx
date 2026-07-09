@@ -1,21 +1,45 @@
 "use client";
 
+import { useState } from "react";
 import { Button, Input } from "@heroui/react";
 
 import Link from "next/link";
 import { User, Mail, Lock, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { signUp } from "@/lib/auth-client";
+import { authClient, signUp } from "@/lib/auth-client";
+
+const validatePassword = (password) => {
+  if (password.length < 6) {
+    return "Password must be at least 6 characters";
+  }
+  if (!/[A-Z]/.test(password)) {
+    return "Password must include an uppercase letter";
+  }
+  if (!/[a-z]/.test(password)) {
+    return "Password must include a lowercase letter";
+  }
+  return "";
+};
 
 const RegisterPage = () => {
   const router = useRouter();
+  const [passwordError, setPasswordError] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const registerData = Object.fromEntries(formData.entries());
+
+    const validationError = validatePassword(registerData.password);
+    if (validationError) {
+      setPasswordError(validationError);
+      return;
+    }
+    setPasswordError("");
+
     const { data, error } = await signUp.email({
       ...registerData,
     });
@@ -27,6 +51,13 @@ const RegisterPage = () => {
       toast.success("Registered successfully!");
     }
     router.push("/login");
+  };
+
+  const handleGoogleLogin = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/",
+    });
   };
 
   return (
@@ -43,6 +74,34 @@ const RegisterPage = () => {
               <p className="text-slate-500 font-medium">
                 Create your account to start learning
               </p>
+            </div>
+
+            <div className="space-y-4">
+              <Button
+                onPress={handleGoogleLogin}
+                variant="bordered"
+                className="w-full h-12 font-bold rounded-2xl border-slate-200 hover:bg-slate-50 transition-colors gap-3"
+              >
+                <Image
+                  width={20}
+                  height={20}
+                  src="https://www.google.com/favicon.ico"
+                  className="w-5 h-5"
+                  alt="Google"
+                />
+                Sign up with Google
+              </Button>
+            </div>
+
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t border-slate-100"></span>
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-white px-4 text-slate-400 font-bold tracking-widest">
+                  Or with email
+                </span>
+              </div>
             </div>
 
             <form onSubmit={handleRegister} className="space-y-6">
@@ -111,9 +170,15 @@ const RegisterPage = () => {
                   placeholder="••••••••"
                   type="password"
                   name="password"
+                  isInvalid={!!passwordError}
+                  errorMessage={passwordError}
+                  onChange={() => passwordError && setPasswordError("")}
                   startContent={<Lock className="w-5 h-5 text-slate-400" />}
                   className="border-2 border-slate-200 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white w-full rounded-2xl"
                 />
+                <p className="text-xs text-slate-400 ml-1">
+                  At least 6 characters, with an uppercase and a lowercase letter.
+                </p>
               </div>
 
               <Button
