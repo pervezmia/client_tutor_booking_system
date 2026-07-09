@@ -71,7 +71,7 @@ export function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="p-2 bg-blue-600 rounded-xl group-hover:rotate-12 transition-transform">
+              <div className="p-2 bg-brand-400 rounded-xl group-hover:rotate-12 transition-transform">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
               <span className="font-extrabold text-2xl tracking-tight text-slate-900">
@@ -86,7 +86,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                className="font-medium text-slate-700 hover:text-brand-400 transition-colors"
               >
                 {link.label}
               </Link>
@@ -99,14 +99,14 @@ export function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+                  className="font-medium text-slate-700 hover:text-brand-400 transition-colors"
                 >
                   Login
                 </Link>
                 <Link href="/register">
                   <Button
                     color="primary"
-                    className="font-bold rounded-full px-8 shadow-lg shadow-blue-600/20"
+                    className="font-bold rounded-full px-8 shadow-lg shadow-brand-400/20"
                   >
                     Join Free
                   </Button>
@@ -125,7 +125,7 @@ export function Navbar() {
                     height={40}
                     src={session?.user?.image || DEFAULT_AVATAR}
                     alt="avatar"
-                    className="w-10 h-10 rounded-full object-cover ring-2 ring-blue-600/10"
+                    className="w-10 h-10 rounded-full object-cover ring-2 ring-brand-400/10"
                   />
                   <div className="text-left hidden lg:block">
                     <p className="text-sm font-bold truncate max-w-25">
