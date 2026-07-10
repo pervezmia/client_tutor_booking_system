@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { BookOpen, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { BookOpen, Mail, Phone, MapPin,} from "lucide-react";
+import { FaFacebook, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const SERVICE_LINKS = [
   { label: "Find Tutors", href: "/tutors" },
@@ -16,10 +18,10 @@ const COMPANY_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { label: "Facebook", href: "https://facebook.com", icon: Facebook },
-  { label: "Twitter", href: "https://twitter.com", icon: Twitter },
-  { label: "Instagram", href: "https://instagram.com", icon: Instagram },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
+  { label: "Facebook", href: "https://facebook.com", icon: <FaFacebook /> },
+  { label: "Twitter", href: "https://twitter.com", icon: <FaSquareXTwitter /> },
+  { label: "Instagram", href: "https://instagram.com", icon: <FaInstagramSquare /> },
+  { label: "LinkedIn", href: "https://linkedin.com", icon: <FaLinkedin /> },
 ];
 
 export function Footer() {
@@ -40,7 +42,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
-              সেরা টিউটরদের সাথে যুক্ত হয়ে সহজে সেশন বুক করুন — যেকোনো সময়, যেকোনো জায়গায়।
+              Join with best tutor
             </p>
           </div>
 

@@ -1,16 +1,21 @@
 "use client";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 import { Button } from "@heroui/react";
 import { ArrowRight, Star } from "lucide-react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import Link from "next/link";
 
 const SLIDES = [
   {
@@ -74,8 +79,9 @@ const Hero = () => {
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                    <Button
-                      href="/tutors"
+                    <Link href="/all-tutors">
+                      <Button
+                      
                       color="primary"
                       size="lg"
                       className="h-14 px-10 text-lg font-bold rounded-full shadow-2xl shadow-brand-400/30 group"
@@ -83,6 +89,7 @@ const Hero = () => {
                       Find a Tutor{" "}
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
+                    </Link>
                   </div>
                   <p className="text-sm text-slate-500 pt-2">{slide.stat}</p>
                 </div>

@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 
 const PUBLIC_NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Tutors", href: "/tutors" },
+  { label: "Tutors", href: "/all-tutors" },
 ];
 
 const AUTH_NAV_LINKS = [
@@ -31,41 +31,20 @@ export function Navbar() {
   const dropdownRef = useRef(null);
   const router = useRouter();
 
-  const { data: session, isPending } = useSession();
 
   // scroll effect আসলে কাজ করবে এখন
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // dropdown-এর বাইরে ক্লিক করলে বন্ধ হয়ে যাবে
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
-  const handleLogout = async () => {
-    await signOut();
-    toast.success("Log out Successfully!");
-    router.push("/");
-  };
-
-  const navLinks = session ? [...PUBLIC_NAV_LINKS, ...AUTH_NAV_LINKS] : PUBLIC_NAV_LINKS;
+//  session ?: PUBLIC_NAV_LINKS;
+  const navLinks =  [...PUBLIC_NAV_LINKS, ...AUTH_NAV_LINKS] 
 
   return (
     <nav
-      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/70 backdrop-blur-md shadow-sm py-2"
-          : "bg-slate-50 py-4"
-      }`}
+      className={`sticky top-0 w-full z-50 transition-all duration-300 
+        
+        bg-white/70 backdrop-blur-md shadow-sm py-2 
+          bg-slate-50 py-4`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
@@ -95,7 +74,7 @@ export function Navbar() {
 
           {/* Desktop right side: auth / profile */}
           <div className="hidden md:flex items-center gap-4">
-            {!isPending && !session ? (
+            {/* {!isPending && !session ? ( */}
               <>
                 <Link
                   href="/login"
@@ -112,7 +91,7 @@ export function Navbar() {
                   </Button>
                 </Link>
               </>
-            ) : (
+            {/* ) :  session?.user?.image ||  ( */} 
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setIsDropdownOpen((prev) => !prev)}
@@ -123,13 +102,13 @@ export function Navbar() {
                   <Image
                     width={40}
                     height={40}
-                    src={session?.user?.image || DEFAULT_AVATAR}
+                    src={DEFAULT_AVATAR}
                     alt="avatar"
                     className="w-10 h-10 rounded-full object-cover ring-2 ring-brand-400/10"
-                  />
+                  /> 
                   <div className="text-left hidden lg:block">
                     <p className="text-sm font-bold truncate max-w-25">
-                      {session?.user?.name}
+                      session user name
                     </p>
                     <p className="text-[10px] text-slate-500">Student</p>
                   </div>
@@ -140,7 +119,7 @@ export function Navbar() {
                     <div className="px-4 py-3 border-b border-slate-100">
                       <p className="font-bold text-sm">Welcome back!</p>
                       <p className="text-xs truncate text-slate-500">
-                        {session?.user?.email}
+                        session user mail
                       </p>
                     </div>
                     <Link
@@ -150,7 +129,7 @@ export function Navbar() {
                       <User className="w-4 h-4" /> Profile
                     </Link>
                     <button
-                      onClick={handleLogout}
+                     
                       className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 flex items-center gap-3 transition-colors text-left"
                     >
                       <LogOut className="w-4 h-4" /> Log Out
@@ -158,7 +137,7 @@ export function Navbar() {
                   </div>
                 )}
               </div>
-            )}
+            {/* )} */}
           </div>
 
           {/* Mobile toggle */}
@@ -188,7 +167,7 @@ export function Navbar() {
           ))}
 
           <div className="pt-4 border-t border-border mt-4">
-            {!isPending && !session ? (
+            {/* {!isPending && !session ? ( */}
               <div className="grid grid-cols-2 gap-4">
                 <Link href="/login">
                   <Button variant="bordered" className="rounded-xl w-full">
@@ -201,19 +180,19 @@ export function Navbar() {
                   </Button>
                 </Link>
               </div>
-            ) : (
+            {/* ) : ( */}
               <div className="flex flex-col gap-2">
                 <p className="px-4 text-xs font-bold text-muted-foreground uppercase tracking-wider">
-                  {session?.user?.name}
+                  {/* {session?.user?.name} */} session user mail
                 </p>
                 <button
-                  onClick={handleLogout}
+         
                   className="block w-full text-left px-4 py-3 text-base font-medium text-red-500 hover:bg-red-50 rounded-xl"
                 >
                   Log Out
                 </button>
               </div>
-            )}
+            {/* )} */}
           </div>
         </div>
       )}
