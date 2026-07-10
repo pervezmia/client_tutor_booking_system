@@ -95,6 +95,7 @@ const LoginPage = () => {
                 <Input
                   id="email"
                   required
+                  defaultValue="hynimahob@mailinator.com"
                   placeholder="Enter your email"
                   type="email"
                   name="email"
@@ -113,6 +114,7 @@ const LoginPage = () => {
                 <Input
                   id="password"
                   required
+                  defaultValue="Pa$$w0rd!"
                   placeholder="••••••••"
                   type="password"
                   name="password"
