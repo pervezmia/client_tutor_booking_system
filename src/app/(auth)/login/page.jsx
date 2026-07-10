@@ -131,7 +131,7 @@ const LoginPage = () => {
               <Button
                 color="primary"
                 type="submit"
-                className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20 group"
+                className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20 group bg-brand-500 text-white hover:bg-brand-600"
               >
                 Sign In{" "}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />

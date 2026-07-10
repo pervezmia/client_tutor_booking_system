@@ -175,7 +175,7 @@ export function Navbar() {
                   </Button>
                 </Link>
                 <Link href="/register">
-                  <Button color="primary" className="rounded-xl w-full">
+                  <Button color="primary" className="rounded-xl w-full ">
                     Join Free
                   </Button>
                 </Link>

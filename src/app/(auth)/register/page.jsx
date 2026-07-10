@@ -9,7 +9,7 @@ import Image from "next/image";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { authClient, signUp } from "@/lib/auth-client";
+import { signIn, signUp } from "@/lib/auth-client";
 
 const validatePassword = (password) => {
   if (password.length < 6) {
@@ -31,7 +31,9 @@ const RegisterPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    // console.log(formData);
     const registerData = Object.fromEntries(formData.entries());
+    console.log(registerData);
 
     const validationError = validatePassword(registerData.password);
     if (validationError) {
@@ -54,7 +56,7 @@ const RegisterPage = () => {
   };
 
   const handleGoogleLogin = async () => {
-    await authClient.signIn.social({
+    await signIn.social({
       provider: "google",
       callbackURL: "/",
     });
@@ -184,7 +186,7 @@ const RegisterPage = () => {
               <Button
                 color="primary"
                 type="submit"
-                className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20 group"
+                className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20 group  bg-brand-500 text-white hover:bg-brand-600"
               >
                 Create Account{" "}
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
