@@ -122,6 +122,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             {SOCIAL_LINKS.map((social) => {
               const Icon = social.icon;
+              console.log(Icon);
               return (
                 <a
                   key={social.label}
@@ -129,9 +130,10 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="p-2 rounded-full bg-slate-800 hover:bg-blue-600 transition-colors"
+                  className="p-2 rounded-full bg-brand-800 hover:bg-brand-600 transition-colors"
                 >
-                  <Icon className="w-4 h-4" />
+                  <span className="w-4 h-4" >{social.icon}</span>
+                  {/* <Icon/> */}
                 </a>
               );
             })}
