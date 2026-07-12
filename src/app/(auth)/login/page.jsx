@@ -8,7 +8,7 @@ import { Mail, Lock, ArrowRight } from "lucide-react";
 
 import Image from "next/image";
 import toast from "react-hot-toast";
-import { authClient, signIn } from "@/lib/auth-client";
+import {  authClient, signIn } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
@@ -20,8 +20,9 @@ const LoginPage = () => {
     const loginData = Object.fromEntries(formData.entries());
     const { data, error } = await signIn.email({
       ...loginData,
-      callbackURL: "/",
+      // callbackURL: "/",
     });
+
     if (error) {
       toast.error("Something went wrong!");
       return;

@@ -31,7 +31,7 @@ export function Navbar() {
   const router = useRouter();
 
   const { data: session, isPending } = useSession();
-  console.log(session?.user);
+  // console.log(session?.user);
 
   // scroll effect আসলে কাজ করবে এখন
 

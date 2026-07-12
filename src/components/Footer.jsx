@@ -122,7 +122,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             {SOCIAL_LINKS.map((social) => {
               const Icon = social.icon;
-              console.log(Icon);
+              // console.log(Icon);
               return (
                 <a
                   key={social.label}

@@ -7,7 +7,7 @@ import { popularTutors } from "@/lib/tutors/data";
 const Popular = async () => {
 
     const popularTutor = await popularTutors();
-    console.log(popularTutor); 
+    // console.log(popularTutor); 
 
     return (
         <div className="min-h-screen bg-slate-50">
