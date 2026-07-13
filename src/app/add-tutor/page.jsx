@@ -1,13 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Input, Select, SelectItem } from "@heroui/react";
+// import { Button, Input, Select, SelectItem } from "@heroui/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { User, MapPin, Clock, DollarSign, Layers, Building2 } from "lucide-react";
+import { MapPin, Clock, DollarSign, Layers, Building2, User } from "lucide-react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { useSession } from "@/lib/auth-client";
+import { Button, Input, Select } from "@heroui/react";
+import SelectSubject from "@/components/SelectSubject";
+
 
 const CATEGORIES = [
   "Mathematics",
@@ -22,7 +25,7 @@ const CATEGORIES = [
   "ICT",
 ];
 
-const TEACHING_MODES = ["Online", "Offline", "Both"];
+// const TEACHING_MODES = ["Online", "Offline", "Both"];
 
 const INPUT_STYLES =
   "border-2 border-slate-200 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white w-full rounded-2xl";
@@ -125,35 +128,20 @@ const AddTutorPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-700 ml-1">
-                  Subject / Category
+                <label htmlFor="name" className="text-sm font-bold text-slate-700 ml-1">
+                  Subject Name
                 </label>
-                <Select
-                  placeholder="Select a subject"
-                  selectedKeys={category}
-                  onSelectionChange={setCategory}
-                  className="w-full"
-                  classNames={{ trigger: "h-14 rounded-2xl border-2 border-slate-200" }}
-                >
-                  {CATEGORIES.map((item) => (
-                    <SelectItem key={item}>{item}</SelectItem>
-                  ))}
-                </Select>
+                <Input
+                  id="subjectName"
+                  name="subjectName"
+                  required
+                  placeholder="Enter tutor's full name"
+                  startContent={<User className="w-5 h-5 text-slate-400" />}
+                  className={INPUT_STYLES}
+                />
               </div>
-
               <div className="space-y-2">
-                <label className="text-sm font-bold text-slate-700 ml-1">Teaching Mode</label>
-                <Select
-                  placeholder="Select teaching mode"
-                  selectedKeys={teachingMode}
-                  onSelectionChange={setTeachingMode}
-                  className="w-full"
-                  classNames={{ trigger: "h-14 rounded-2xl border-2 border-slate-200" }}
-                >
-                  {TEACHING_MODES.map((mode) => (
-                    <SelectItem key={mode}>{mode}</SelectItem>
-                  ))}
-                </Select>
+                <SelectSubject INPUT_STYLES={INPUT_STYLES} ></SelectSubject>
               </div>
             </div>
 
