@@ -1,3 +1,5 @@
+import BookingModal from "@/components/BookingModal";
+import { auth } from "@/lib/auth";
 import { Button } from "@heroui/react";
 import {
   ArrowLeft,
@@ -9,34 +11,52 @@ import {
   Layers,
   MapPin,
 } from "lucide-react";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
-const fetchSingleTutor = async (id) => {
+const fetchSingleTutor = async (id, token) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/all-tutors/${id}`,
-  );
+    `${process.env.NEXT_PUBLIC_API_URL}/all-tutors/${id}`,{
+      headers: {
+        authorization: `Bearer ${token}` || ""
+      }
+    });
   const data = await res.json();
   return data || {};
 };
 
 const TutorDetailsPage = async ({ params }) => {
   const { id } = await params;
-  console.log(id);
-  const singleTutor = await fetchSingleTutor(id);
-  console.log(singleTutor);
+  // console.log(id);
+  
+    const {token} = await auth.api.getToken({
+      headers: await headers() 
+});
+// console.log(token);
+   
+  const singleTutor = await fetchSingleTutor(id, token);
+  // console.log(singleTutor);
 
   if (!singleTutor) {
     notFound();
   }
 
-  const formattedStartDate = singleTutor.sessionStartDate
-    ? new Date(singleTutor.sessionStartDate).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : "Not specified";
+  // const formattedStartDate = singleTutor.sessionStartDate
+  //   ? new Date(singleTutor.sessionStartDate).toLocaleDateString("en-US", {
+  //       year: "numeric",
+  //       month: "long",
+  //       day: "numeric",
+  //     })
+  //   : "Not specified";
+
+  const formattedStartTime = singleTutor.startTime
+  ? moment(singleTutor.startTime).format("h:mm A")
+  : "Not specified";
+
+// const formattedEndTime = singleTutor.endTime
+//   ? moment(singleTutor.endTime).format("h:mm A")
+//   : "Not specified";
 
   const details = [
     { icon: Building2, label: "Institution", value: singleTutor.institution },
@@ -48,12 +68,14 @@ const TutorDetailsPage = async ({ params }) => {
     {
       icon: CalendarDays,
       label: "Session Start Date",
-      value: formattedStartDate,
+      value: formattedStartTime,
     },
     {
       icon: Layers,
       label: "Total Slot",
-      value: singleTutor.totalSlot ? `${singleTutor.totalSlot} slots` : "Not specified",
+      value: singleTutor.totalSlot
+        ? `${singleTutor.totalSlot} slots`
+        : "Not specified",
     },
   ];
 
@@ -117,13 +139,9 @@ const TutorDetailsPage = async ({ params }) => {
                 ))}
               </div>
 
-              <Button
-                color="primary"
-                size="lg"
-                className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20"
-              >
-                Book This Tutor
-              </Button>
+              
+              <BookingModal></BookingModal>
+              
             </div>
           </div>
         </div>

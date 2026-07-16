@@ -5,28 +5,13 @@ const modes = [
     {id: "both", mode: "Both"},
     
 ]
-// const CATEGORIES = [
-//   "Mathematics",
-//   "Physics",
-//   "Chemistry",
-//   "Biology",
-//   "English",
-//   "Programming",
-//   "Economics",
-//   "Accounting",
-//   "Bangla",
-//   "ICT",
-// ];
 
-const SelectSubject = ({INPUT_STYLES}) => {
-
-  // const [teachingMode, setTeachingMode] = useState(new Set());
-
-  return (
-    <>
-      <Label>Subject</Label>
+const TeachingMode = ({INPUT_STYLES}) => {
+    return (
+        <>
+      <Label>Teaching Mode</Label>
     <div>
-        <Select className={INPUT_STYLES } name="selectSubject" placeholder="Select one">
+        <Select className={INPUT_STYLES } name="teachingMode" placeholder="Select one">
       <Select.Trigger>
         <Select.Value />
         <Select.Indicator />
@@ -44,7 +29,7 @@ const SelectSubject = ({INPUT_STYLES}) => {
     </Select>
     </div>
     </>
-  );
+    );
 };
 
-export default SelectSubject;
+export default TeachingMode;

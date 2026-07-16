@@ -10,22 +10,11 @@ import { useRouter } from "next/navigation";
 import { useSession } from "@/lib/auth-client";
 import { Button, Input, Select } from "@heroui/react";
 import SelectSubject from "@/components/SelectSubject";
+import TeachingMode from "@/components/TeachingMode";
 
 
-const CATEGORIES = [
-  "Mathematics",
-  "Physics",
-  "Chemistry",
-  "Biology",
-  "English",
-  "Programming",
-  "Economics",
-  "Accounting",
-  "Bangla",
-  "ICT",
-];
 
-// const TEACHING_MODES = ["Online", "Offline", "Both"];
+
 
 const INPUT_STYLES =
   "border-2 border-slate-200 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white w-full rounded-2xl";
@@ -34,25 +23,21 @@ const AddTutorPage = () => {
   const router = useRouter();
   const { data: session } = useSession();
 
-  const [category, setCategory] = useState(new Set());
-  const [teachingMode, setTeachingMode] = useState(new Set());
   const [sessionStartDate, setSessionStartDate] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const tutorData = Object.fromEntries(formData.entries());
-
-    if (!Array.from(category)[0] || !Array.from(teachingMode)[0] || !sessionStartDate) {
-      toast.error("Please fill in category, teaching mode, and start date.");
-      return;
-    }
+    console.log(tutorData);
+    const startDate = new Date(tutorData.startDate);
+    console.log(startDate);
 
     const payload = {
       ...tutorData,
-      category: Array.from(category)[0],
-      teachingMode: Array.from(teachingMode)[0],
+      startDate,
+    
       sessionStartDate,
       tutorEmail: session?.user?.email,
       tutorName: tutorData.name,
@@ -62,23 +47,24 @@ const AddTutorPage = () => {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/tutors`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include",
         body: JSON.stringify(payload),
       });
-
-      if (!res.ok) {
+      const data = await res.json();
+      if (!data.insertedId) {
         toast.error("Something went wrong!");
         return;
       }
 
       toast.success("Tutor added successfully!");
-      e.currentTarget.reset();
-      setCategory(new Set());
-      setTeachingMode(new Set());
+      console.log(form);
+      form.reset();
+      // setCategory(new Set());
+      // setTeachingMode(new Set());
       setSessionStartDate(null);
-      router.push("/my-tutors");
+      router.push("/all-tutors");
     } catch (error) {
-      toast.error("Something went wrong!");
+      // toast.error("Something went wrong!");
+      console.log(error);
     }
   };
 
@@ -113,7 +99,7 @@ const AddTutorPage = () => {
 
               <div className="space-y-2">
                 <label htmlFor="photo" className="text-sm font-bold text-slate-700 ml-1">
-                  Photo (imgbb / postimage link)
+                  Photo 
                 </label>
                 <Input
                   id="photo"
@@ -141,7 +127,8 @@ const AddTutorPage = () => {
                 />
               </div>
               <div className="space-y-2">
-                <SelectSubject INPUT_STYLES={INPUT_STYLES} ></SelectSubject>
+                {/* <SelectSubject INPUT_STYLES={INPUT_STYLES} ></SelectSubject> */}
+                <TeachingMode INPUT_STYLES={INPUT_STYLES}></TeachingMode>
               </div>
             </div>
 
@@ -159,7 +146,7 @@ const AddTutorPage = () => {
                   className={INPUT_STYLES}
                 />
               </div>
-
+              
               <div className="space-y-2">
                 <label htmlFor="availableTime" className="text-sm font-bold text-slate-700 ml-1">
                   Available Time Slot
@@ -214,6 +201,7 @@ const AddTutorPage = () => {
                 Session Start Date
               </label>
               <DatePicker
+                name="startDate"
                 selected={sessionStartDate}
                 onChange={(date) => setSessionStartDate(date)}
                 minDate={new Date()}
