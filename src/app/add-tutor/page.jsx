@@ -30,9 +30,9 @@ const AddTutorPage = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
     const tutorData = Object.fromEntries(formData.entries());
-    console.log(tutorData);
+    // console.log(tutorData);
     const startDate = new Date(tutorData.startDate);
-    console.log(startDate);
+    // console.log(startDate);
 
     const payload = {
       ...tutorData,

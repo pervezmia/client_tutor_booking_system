@@ -56,7 +56,7 @@ export function Navbar() {
     toast.success("!Log out Successfully!");
     router.push("/");
   };
-  //  session ?: PUBLIC_NAV_LINKS;
+
   const navLinks = [...PUBLIC_NAV_LINKS, ...AUTH_NAV_LINKS];
 
   return (

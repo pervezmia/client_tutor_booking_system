@@ -36,7 +36,7 @@ const TutorDetailsPage = async ({ params }) => {
 // console.log(token);
    
   const singleTutor = await fetchSingleTutor(id, token);
-  // console.log(singleTutor);
+  console.log(singleTutor,"single route");
 
   if (!singleTutor) {
     notFound();
@@ -140,7 +140,7 @@ const TutorDetailsPage = async ({ params }) => {
               </div>
 
               
-              <BookingModal></BookingModal>
+              <BookingModal singleTutor={singleTutor}></BookingModal>
               
             </div>
           </div>
