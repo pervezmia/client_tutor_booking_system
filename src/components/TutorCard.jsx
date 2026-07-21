@@ -33,7 +33,7 @@ const TutorCard = ({ tutor }) => {
                 <p className="text-sm text-gray-600">
                     Subject: 
                     <span className="font-semibold text-brand-600">
-                        {" "}{tutor.subject}
+                        {" "}{tutor.subjectName}
                     </span>
                 </p>
 

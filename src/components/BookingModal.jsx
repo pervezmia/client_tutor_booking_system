@@ -6,7 +6,7 @@ import BookedButton from "./BookedButton";
 import { useEffect, useState } from "react";
 // import { email } from "better-auth";
 
-const BookingModal = ({ singleTutor }) => {
+const BookingModal = ({ singleTutor, isBookingAvailable }) => {
   const { data: session } = useSession();
   console.log(session?.user);
   const { _id, tutorName } = singleTutor;
@@ -39,9 +39,13 @@ const BookingModal = ({ singleTutor }) => {
 
   return (
     <Modal>
+      {!isBookingAvailable && (
+        <p className="text-red-500 text-sm font-semibold mb-2 text-center">Booking is not available yet for this tutor</p>
+      )}
       <Button
         color="primary"
         size="lg"
+        isDisabled={!isBookingAvailable}
         className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20"
       >
         Book This Tutor

@@ -24,7 +24,7 @@ const MyBookingsSessions = async () => {
 
 
     
-    console.log(bookedData);
+    // console.log(bookedData);
     return (
         <div className="max-w-6xl mx-auto px-4 py-12">
             <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -48,12 +48,12 @@ const MyBookingsSessions = async () => {
                     </div>
                 </div>
 
-                {/* Enrollments */}
+                {/* Booked  */}
                 <div className="w-full md:w-3/4">
                     <h1 className="text-3xl font-bold mb-6">My Enrolled Courses</h1>
 
                     <div className="space-y-4">
-                        {/* <EnrollmentCard enrollments={enrollments}/> */}
+                    
                         
                         <BookedCard bookedData={bookedData}></BookedCard>
 

@@ -11,6 +11,7 @@ import {
   Layers,
   MapPin,
 } from "lucide-react";
+import moment from "moment";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,27 +37,21 @@ const TutorDetailsPage = async ({ params }) => {
 // console.log(token);
    
   const singleTutor = await fetchSingleTutor(id, token);
-  console.log(singleTutor,"single route");
+  // console.log(singleTutor,"single route");
 
   if (!singleTutor) {
     notFound();
   }
 
-  // const formattedStartDate = singleTutor.sessionStartDate
-  //   ? new Date(singleTutor.sessionStartDate).toLocaleDateString("en-US", {
-  //       year: "numeric",
-  //       month: "long",
-  //       day: "numeric",
-  //     })
-  //   : "Not specified";
-
-  const formattedStartTime = singleTutor.startTime
-  ? moment(singleTutor.startTime).format("h:mm A")
+  const formattedStartDate = singleTutor.sessionStartDate
+  ? moment(singleTutor.sessionStartDate).format("MMMM D, YYYY")
   : "Not specified";
 
-// const formattedEndTime = singleTutor.endTime
-//   ? moment(singleTutor.endTime).format("h:mm A")
-//   : "Not specified";
+  const isBookingAvailable = singleTutor.sessionStartDate
+    ? new Date() >= new Date(singleTutor.sessionStartDate)
+    : true;
+
+
 
   const details = [
     { icon: Building2, label: "Institution", value: singleTutor.institution },
@@ -68,7 +63,7 @@ const TutorDetailsPage = async ({ params }) => {
     {
       icon: CalendarDays,
       label: "Session Start Date",
-      value: formattedStartTime,
+      value: formattedStartDate,
     },
     {
       icon: Layers,
@@ -106,7 +101,7 @@ const TutorDetailsPage = async ({ params }) => {
             <div className="md:col-span-3 p-8 sm:p-10 space-y-6">
               <div className="space-y-2">
                 <span className="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-bold rounded-full">
-                  {singleTutor?.subject}
+                  {singleTutor?.subjectName}
                 </span>
                 <h1 className="text-3xl font-black text-slate-900 tracking-tight">
                   {singleTutor?.tutorName}
@@ -140,7 +135,7 @@ const TutorDetailsPage = async ({ params }) => {
               </div>
 
               
-              <BookingModal singleTutor={singleTutor}></BookingModal>
+              <BookingModal singleTutor={singleTutor} isBookingAvailable={isBookingAvailable}></BookingModal>
               
             </div>
           </div>

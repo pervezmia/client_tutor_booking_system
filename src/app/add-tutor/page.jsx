@@ -36,8 +36,8 @@ const AddTutorPage = () => {
 
     const payload = {
       ...tutorData,
-      startDate,
-    
+      hourlyFee: Number(tutorData.hourlyFee),
+      totalSlot: Number(tutorData.totalSlot),
       sessionStartDate,
       tutorEmail: session?.user?.email,
       tutorName: tutorData.name,
@@ -236,6 +236,7 @@ const AddTutorPage = () => {
                   name="experience"
                   required
                   placeholder="e.g. 3 years"
+
                   className={INPUT_STYLES}
                 />
               </div>

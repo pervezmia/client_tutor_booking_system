@@ -6,11 +6,19 @@ import toast from "react-hot-toast";
 
 const BookedButton = ({ singleTutor, formData }) => {
   // console.log(singleTutor);
+
   const { data: session } = useSession();
   console.log(session);
   const router = useRouter();
   // console.log(session);
   const handleButton = async () => {
+    if (
+      singleTutor?.sessionStartDate &&
+      new Date() < new Date(singleTutor.sessionStartDate)
+    ) {
+      toast.error("Booking is not available yet for this tutor");
+      return;
+    }
     const { data: jwtData } = await authClient.token();
     // // console.log(jwtData);
     const token = jwtData?.token;
@@ -25,10 +33,10 @@ const BookedButton = ({ singleTutor, formData }) => {
       tutorName: singleTutor?.tutorName,
       studentName: formData.studentName,
       studentEmail: formData.email,
-      studentId: session?.user?.id, 
+      studentId: session?.user?.id,
       phone: formData.phone,
       photo: singleTutor?.photo,
-      subject: singleTutor?.subject,
+      subject: singleTutor?.subjectName,
     };
     // console.log(updateData);
 
@@ -48,7 +56,7 @@ const BookedButton = ({ singleTutor, formData }) => {
     console.log(data);
 
     if (!res.ok) {
-      toast.error( data?.message ||"Something is wrong!");
+      toast.error(data?.message || "Something is wrong!");
       return;
     }
 
@@ -56,6 +64,7 @@ const BookedButton = ({ singleTutor, formData }) => {
 
     router.push("/my-bookings");
   };
+  console.log(handleButton);
   return (
     <div>
       <Button onPress={handleButton} slot="close">

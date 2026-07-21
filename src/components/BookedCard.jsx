@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 // import CancelEnrollButton from "./CancelEnrolButton";
 import Link from "next/link";
+import CancelButton from "./CancelButton";
 
 const BookedCard = ({bookedData}) => {
   console.log(bookedData);
@@ -39,10 +40,10 @@ const BookedCard = ({bookedData}) => {
                     <p className="text-sm text-slate-500">
                       Subject: {item?.subject}
                     </p>
-                    <p className="text-sm text-slate-500">
+                    {/* <p className="text-sm text-slate-500">
                       Student: {item?.studentName}
-                    </p>
-                    <p className="text-sm text-slate-500">Gmail: {item?.studentEmail}</p>
+                    </p> */}
+                    {/* <p className="text-sm text-slate-500">Gmail: {item?.studentEmail}</p> */}
                   </div>
 
                   <div className="mt-2 flex justify-between items-center">
@@ -51,6 +52,7 @@ const BookedCard = ({bookedData}) => {
                     </Chip>
 
                     {/* <CancelEnrollButton courseId={bookedData.courseId} /> */}
+                    <CancelButton tutorId={item.tutorId}></CancelButton>
                   </div>
                 </div>
               </div>
