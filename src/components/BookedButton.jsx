@@ -51,9 +51,9 @@ const BookedButton = ({ singleTutor, formData }) => {
         body: JSON.stringify(updateData),
       },
     );
-    console.log(res);
+    // console.log(res);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
 
     if (!res.ok) {
       toast.error(data?.message || "Something is wrong!");
@@ -69,7 +69,7 @@ const BookedButton = ({ singleTutor, formData }) => {
     <div>
       <Button onPress={handleButton} slot="close">
         Confirm tutor Book
-      </Button>{" "}
+      </Button>
     </div>
   );
 };

@@ -6,9 +6,9 @@ import BookedButton from "./BookedButton";
 import { useEffect, useState } from "react";
 // import { email } from "better-auth";
 
-const BookingModal = ({ singleTutor, isBookingAvailable }) => {
+const BookingModal = ({ singleTutor, isBookingAvailable, isSlotAvailable}) => {
   const { data: session } = useSession();
-  console.log(session?.user);
+  // console.log(session?.user);
   const { _id, tutorName } = singleTutor;
 
   
@@ -28,24 +28,26 @@ const BookingModal = ({ singleTutor, isBookingAvailable }) => {
       }))
     }
   },[session]);
-  // const handleModalSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-  //   const formData = new FormData(form);
-  //   const modalData = Object.fromEntries(formData.entries());
-  //   console.log(modalData);
-  // };
+  
+  const canBook = isBookingAvailable && isSlotAvailable;
+
 
 
   return (
     <Modal>
       {!isBookingAvailable && (
-        <p className="text-red-500 text-sm font-semibold mb-2 text-center">Booking is not available yet for this tutor</p>
+        <p className="text-red-500 text-sm font-semibold mb-2 text-center">Booking is closed. This session has already started.</p>
+      )}
+
+      {isBookingAvailable && !isSlotAvailable && (
+        <p className="text-red-500 text-sm font-semibold mb-2 text-center">
+          No available slots left.
+        </p>
       )}
       <Button
         color="primary"
         size="lg"
-        isDisabled={!isBookingAvailable}
+        isDisabled={!canBook}
         className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20"
       >
         Book This Tutor

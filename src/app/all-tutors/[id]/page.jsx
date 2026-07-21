@@ -46,10 +46,19 @@ const TutorDetailsPage = async ({ params }) => {
   const formattedStartDate = singleTutor.sessionStartDate
   ? moment(singleTutor.sessionStartDate).format("MMMM D, YYYY")
   : "Not specified";
+  
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
-  const isBookingAvailable = singleTutor.sessionStartDate
-    ? new Date() >= new Date(singleTutor.sessionStartDate)
-    : true;
+  const sessionDate = singleTutor.sessionStartDate
+    ?  new Date(singleTutor.sessionStartDate) : null;
+
+  if(sessionDate) sessionDate.setHours(0, 0, 0, 0);
+
+  const isBookingAvailable = sessionDate ? today <= sessionDate : true;
+
+  const isSlotAvailable = singleTutor.totalSlot > 0;
 
 
 
@@ -135,7 +144,7 @@ const TutorDetailsPage = async ({ params }) => {
               </div>
 
               
-              <BookingModal singleTutor={singleTutor} isBookingAvailable={isBookingAvailable}></BookingModal>
+              <BookingModal singleTutor={singleTutor} isBookingAvailable={isBookingAvailable} isSlotAvailable={isSlotAvailable}></BookingModal>
               
             </div>
           </div>
