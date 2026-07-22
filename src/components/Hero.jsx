@@ -51,6 +51,7 @@ const SLIDES = [
 ];
 
 const Hero = () => {
+  
   return (
     <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32 from-brand-50 via-slate-50 to-slate-50">
       <Swiper

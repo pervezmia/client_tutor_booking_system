@@ -4,6 +4,11 @@ import { Button } from "@heroui/react";
 import { Users, Filter } from "lucide-react";
 import { fetchTutors } from "@/lib/tutors/data";
 
+export const metadata = {
+  title: "All tutor page in my-tutor project",
+  description: "This is my details page.",
+};
+
 
 const TutorsPage = async () => {
 

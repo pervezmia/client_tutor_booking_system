@@ -16,6 +16,19 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 
+export const generateMetadata = async ({params}) => {
+  const {id} = await params;
+  
+  const singleTutor = await fetchSingleTutor(id);
+  
+  return {
+    title: singleTutor.subjectName,
+    description: singleTutor.tutorName,
+  }
+
+}
+
+
 const fetchSingleTutor = async (id, token) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/all-tutors/${id}`,{

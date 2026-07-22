@@ -1,7 +1,15 @@
+import DeleteTutorButton from "@/components/DeleteTutorButton";
+import UpdateTutorModal from "@/components/UpdateTutorModal";
 import { auth } from "@/lib/auth";
 import { Users } from "lucide-react";
 import { headers } from "next/headers";
 import Link from "next/link";
+
+
+export const metadata = {
+  title: "My-tutors",
+  description: "This is my tutors page.",
+};
 
 const fetchMyTutors = async (email, token) => {
   const res = await fetch(
@@ -95,8 +103,8 @@ const MyTutorsPage = async () => {
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center justify-end gap-2">
-                        {/* <UpdateTutorModal tutor={tutor} />
-                        <DeleteTutorButton tutorId={tutor._id} /> */}
+                        <UpdateTutorModal tutor={tutor} />
+                        <DeleteTutorButton tutorId={tutor._id} />
                       </div>
                     </td>
                   </tr>

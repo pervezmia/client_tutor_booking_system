@@ -5,6 +5,11 @@ import { headers } from 'next/headers';
 import Image from 'next/image';
 import React from 'react';
 
+export const metadata = {
+  title: "My Booked Sessions",
+  description: "This is my booked page.",
+};
+
 const MyBookingsSessions = async () => {
     const {token} = await auth.api.getToken({
         headers: await headers()

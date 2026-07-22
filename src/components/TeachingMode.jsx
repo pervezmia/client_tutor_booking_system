@@ -7,6 +7,7 @@ const modes = [
 ]
 
 const TeachingMode = ({INPUT_STYLES}) => {
+  
     return (
         <>
       <Label>Teaching Mode</Label>

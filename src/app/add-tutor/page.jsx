@@ -14,10 +14,10 @@ import TeachingMode from "@/components/TeachingMode";
 
 
 
-
-
 const INPUT_STYLES =
   "border-2 border-slate-200 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white w-full rounded-2xl";
+
+
 
 const AddTutorPage = () => {
   const router = useRouter();
@@ -30,9 +30,7 @@ const AddTutorPage = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
     const tutorData = Object.fromEntries(formData.entries());
-    // console.log(tutorData);
-    const startDate = new Date(tutorData.startDate);
-    // console.log(startDate);
+    
 
     const payload = {
       ...tutorData,
@@ -80,6 +78,8 @@ const AddTutorPage = () => {
               Fill in the details below to list yourself as a tutor
             </p>
           </div>
+
+          
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
