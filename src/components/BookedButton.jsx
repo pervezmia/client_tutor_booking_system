@@ -12,13 +12,32 @@ const BookedButton = ({ singleTutor, formData }) => {
   const router = useRouter();
   // console.log(session);
   const handleButton = async () => {
-    if (
-      singleTutor?.sessionStartDate &&
-      new Date() < new Date(singleTutor.sessionStartDate)
-    ) {
-      toast.error("Booking is not available yet for this tutor");
+    if (!formData.studentName) {
+      toast.error("Student name is required");
       return;
     }
+    if (!formData.phone) {
+      toast.error("Phone number is required");
+      return;
+    }
+    if (!/^01\d{9}$/.test(formData.phone)) {
+      toast.error("Enter a valid Bangladeshi phone number (e.g. 01712345678)");
+      return;
+    }
+
+    if (singleTutor?.sessionStartDate) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      const sessionDate = new Date(singleTutor.sessionStartDate);
+      sessionDate.setHours(0, 0, 0, 0);
+
+      if (today > sessionDate) {
+        toast.error("Booking is closed. This session has already started.");
+        return;
+      }
+    }
+
     const { data: jwtData } = await authClient.token();
     // // console.log(jwtData);
     const token = jwtData?.token;
