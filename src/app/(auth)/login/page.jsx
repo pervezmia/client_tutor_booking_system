@@ -44,13 +44,6 @@ const LoginPage = () => {
 
   
 
-  // const handleGoogleLogin = async () => {
-  //   await authClient.signIn.social({
-  //     provider: "google",
-  //     callbackURL: "/",
-  //   });
-  // };
-
   return (
     <div className="min-h-[80vh] flex flex-col bg-slate-50">
       <div className="flex items-center justify-center p-4">

@@ -8,7 +8,7 @@ const SearchBar = () => {
   const [search, setSearch] = useState("");
   const router = useRouter();
   const searchParams = useSearchParams();
-  console.log(searchParams);
+//   console.log(searchParams);
 
   const handleSearch = () => {
     const params = new URLSearchParams(searchParams.toString());

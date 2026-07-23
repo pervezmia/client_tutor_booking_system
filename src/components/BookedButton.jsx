@@ -8,7 +8,7 @@ const BookedButton = ({ singleTutor, formData }) => {
   // console.log(singleTutor);
 
   const { data: session } = useSession();
-  console.log(session);
+  // console.log(session);
   const router = useRouter();
   // console.log(session);
   const handleButton = async () => {

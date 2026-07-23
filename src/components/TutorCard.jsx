@@ -1,3 +1,4 @@
+"use client"
 import { Button, Card, CardFooter } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,7 @@ const TutorCard = ({ tutor }) => {
 
     return (
 
-        <Card className="h-full overflow-hidden shadow-md hover:shadow-xl transition">
+        <Card data-aos="fade-up" className="h-full overflow-hidden shadow-md hover:shadow-xl transition">
 
             <div className="relative w-full h-56">
 

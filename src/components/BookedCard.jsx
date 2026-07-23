@@ -6,7 +6,7 @@ import Link from "next/link";
 import CancelButton from "./CancelButton";
 
 const BookedCard = ({bookedData}) => {
-  console.log(bookedData);
+  // console.log(bookedData);
     return (
          <>
       <div className="w-full md:w-3/4">

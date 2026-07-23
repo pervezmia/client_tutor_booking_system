@@ -33,7 +33,7 @@ const RegisterPage = () => {
     const formData = new FormData(e.currentTarget);
     // console.log(formData);
     const registerData = Object.fromEntries(formData.entries());
-    console.log(registerData);
+    // console.log(registerData);
 
     const validationError = validatePassword(registerData.password);
     if (validationError) {

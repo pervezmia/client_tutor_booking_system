@@ -54,7 +54,7 @@ const AddTutorPage = () => {
       }
 
       toast.success("Tutor added successfully!");
-      console.log(form);
+      // console.log(form);
       form.reset();
       // setCategory(new Set());
       // setTeachingMode(new Set());
