@@ -51,9 +51,8 @@ const SLIDES = [
 ];
 
 const Hero = () => {
-  
   return (
-    <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32 from-brand-50 via-slate-50 to-slate-50">
+    <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32 bg-linear-to-b from-brand-50 via-slate-50 to-slate-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900">
       <Swiper
         navigation
         pagination={true}
@@ -69,35 +68,34 @@ const Hero = () => {
                     <Star className="w-4 h-4 fill-brand-400" />
                     <span>{slide.badge}</span>
                   </div>
-                  <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+                  <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                     {slide.titleStart}{" "}
                     <span className="bg-clip-text text-transparent bg-linear-to-r from-brand-400 to-brand-700">
                       {slide.highlight}
                     </span>{" "}
                     {slide.titleEnd}
                   </h1>
-                  <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
+                  <p className="text-xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl">
                     {slide.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 pt-4">
                     <Link href="/all-tutors">
                       <Button
-                      
-                      color="primary"
-                      size="lg"
-                      className="h-14 px-10 text-lg rounded-full shadow-2xl shadow-brand-400/30 group  bg-brand-500 text-white font-bold hover:bg-brand-600"
-                    >
-                      Find a Tutor{" "}
-                      <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+                        color="primary"
+                        size="lg"
+                        className="h-14 px-10 text-lg rounded-full shadow-2xl shadow-brand-400/30 group  bg-brand-500 text-white font-bold hover:bg-brand-600"
+                      >
+                        Find a Tutor{" "}
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Button>
                     </Link>
                   </div>
-                  <p className="text-sm text-slate-500 pt-2">{slide.stat}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 pt-2">{slide.stat}</p>
                 </div>
 
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-linear-to-r from-primary to-brand-400 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                  <div className="relative bg-white p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
+                  <div className="relative bg-white dark:bg-slate-800 p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
                     <Image
                       src={slide.image}
                       alt={slide.titleStart}
@@ -105,7 +103,7 @@ const Hero = () => {
                       priority={index === 0}
                       className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
+                    <div className="absolute bottom-8 left-8 right-8 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 dark:border-slate-700/50 shadow-2xl">
                       <div className="flex items-center gap-4">
                         <div className="flex -space-x-3">
                           {[1, 2, 3, 4].map((i) => (
@@ -114,14 +112,14 @@ const Hero = () => {
                               src={`https://i.pravatar.cc/100?img=${i + 10}`}
                               width={40}
                               height={40}
-                              className="w-10 h-10 rounded-full border-2 border-white shadow-md"
+                              className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-800 shadow-md"
                               alt="student avatar"
                             />
                           ))}
                         </div>
                         <div>
-                          <p className="font-bold text-sm">Join the community</p>
-                          <p className="text-xs text-slate-500">
+                          <p className="font-bold text-sm text-slate-900 dark:text-white">Join the community</p>
+                          <p className="text-xs text-slate-500 dark:text-slate-400">
                             120+ new enrollments today
                           </p>
                         </div>
