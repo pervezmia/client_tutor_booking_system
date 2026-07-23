@@ -12,4 +12,10 @@
   --color-brand-800: #995903;
   --color-brand-900: #734302;
   --color-brand-950: #593402;
+};
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300;
 }
