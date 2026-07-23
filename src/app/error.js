@@ -10,33 +10,33 @@ const Error = ({ error, reset }) => {
   }, [error]);
 
   return (
-    <div className="min-h-[80vh] bg-slate-50 flex items-center justify-center px-4">
+    <div className="min-h-[80vh] bg-slate-50 dark:bg-slate-900 flex items-center justify-center px-4">
       <div className="max-w-lg w-full text-center space-y-8">
         <div className="flex justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-red-100 rounded-full blur-2xl opacity-60" />
-            <div className="relative w-24 h-24 bg-white border-2 border-red-100 rounded-[2rem] flex items-center justify-center shadow-xl">
-              <AlertTriangle className="w-12 h-12 text-red-500" strokeWidth={2} />
+            <div className="absolute inset-0 bg-red-100 dark:bg-red-950 rounded-full blur-2xl opacity-60" />
+            <div className="relative w-24 h-24 bg-white dark:bg-slate-800 border-2 border-red-100 dark:border-red-900 rounded-[2rem] flex items-center justify-center shadow-xl">
+              <AlertTriangle className="w-12 h-12 text-red-500 dark:text-red-400" strokeWidth={2} />
             </div>
           </div>
         </div>
 
         <div className="space-y-3">
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
             Something went wrong
           </h1>
-          <p className="text-slate-500 font-medium leading-relaxed">
+          <p className="text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
             An unexpected error occurred while processing your request.
             Don&apos;t worry, you can try again or head back home.
           </p>
         </div>
 
         {error?.message && (
-          <div className="bg-white border border-slate-200 rounded-2xl p-4 text-left">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
+          <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 text-left">
+            <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">
               Error Details
             </p>
-            <p className="text-sm text-slate-600 font-mono break-words">
+            <p className="text-sm text-slate-600 dark:text-slate-300 font-mono break-words">
               {error.message}
             </p>
           </div>
@@ -52,7 +52,7 @@ const Error = ({ error, reset }) => {
           </button>
           <Link
             href="/"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border-2 border-slate-200 hover:border-brand-400/50 text-slate-700 font-bold rounded-2xl transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-brand-400/50 text-slate-700 dark:text-slate-200 font-bold rounded-2xl transition-all duration-300"
           >
             <Home className="w-4 h-4" />
             Back to Home

@@ -1,6 +1,6 @@
 const Loading = () => {
   return (
-    <div className="min-h-[80vh] bg-slate-50 flex items-center justify-center px-4">
+    <div className="min-h-[80vh] bg-slate-50 dark:bg-slate-900 flex items-center justify-center px-4">
       <div className="flex flex-col items-center gap-6">
         {/* Animated Logo/Icon */}
         <div className="relative w-20 h-20">
@@ -27,7 +27,7 @@ const Loading = () => {
 
         {/* Text */}
         <div className="text-center space-y-1.5">
-          <p className="text-lg font-black text-slate-900 tracking-tight">
+          <p className="text-lg font-black text-slate-900 dark:text-white tracking-tight">
             Loading
             <span className="inline-flex ml-1">
               <span className="animate-bounce [animation-delay:-0.3s]">.</span>
@@ -35,13 +35,13 @@ const Loading = () => {
               <span className="animate-bounce">.</span>
             </span>
           </p>
-          <p className="text-sm text-slate-400 font-medium">
+          <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">
             Please wait a moment
           </p>
         </div>
 
         {/* Progress bar shimmer — pure Tailwind, styled-jsx ছাড়া */}
-        <div className="w-48 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+        <div className="w-48 h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div className="h-full w-1/3 bg-brand-400 rounded-full animate-pulse" />
         </div>
       </div>
