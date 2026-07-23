@@ -34,24 +34,24 @@ const MyTutorsPage = async () => {
   const myTutors = await fetchMyTutors(email, token)
 
   return (
-    <div className="min-h-[80vh] bg-slate-50 py-12">
+    <div className="min-h-[80vh] bg-slate-50 dark:bg-slate-900 py-12">
       <div className="max-w-6xl mx-auto px-4">
         <div className="mb-8">
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
             My <span className="text-brand-400">Tutors</span>
           </h2>
-          <p className="text-slate-500 font-medium">
+          <p className="text-slate-500 dark:text-slate-400 font-medium">
             Tutors you have added to the platform
           </p>
         </div>
 
         {myTutors.length === 0 ? (
-          <div className="bg-white rounded-[2rem] border border-slate-200 p-16 text-center space-y-3">
-            <Users className="w-12 h-12 text-slate-300 mx-auto" />
-            <p className="text-slate-600 font-bold text-lg">
+          <div className="bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200 dark:border-slate-700 p-16 text-center space-y-3">
+            <Users className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto" />
+            <p className="text-slate-600 dark:text-slate-300 font-bold text-lg">
               You have not added any tutors yet
             </p>
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-400 dark:text-slate-500 text-sm">
               Start by adding your first tutor to the platform
             </p>
             <Link
@@ -62,23 +62,23 @@ const MyTutorsPage = async () => {
             </Link>
           </div>
         ) : (
-          <div className="bg-white rounded-[2rem] border border-slate-200 shadow-xl overflow-x-auto">
+          <div className="bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200 dark:border-slate-700 shadow-xl overflow-x-auto">
             <table className="w-full text-left">
-              <thead className="bg-slate-50 border-b border-slate-200">
+              <thead className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
                 <tr>
-                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                     Name
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                     Subject
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                     Fee
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase">
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                     Slot
                   </th>
-                  <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase text-right">
+                  <th className="px-6 py-4 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase text-right">
                     Actions
                   </th>
                 </tr>
@@ -87,18 +87,18 @@ const MyTutorsPage = async () => {
                 {myTutors.map((tutor) => (
                   <tr
                     key={tutor._id}
-                    className="border-b border-slate-100 last:border-0"
+                    className="border-b border-slate-100 dark:border-slate-700 last:border-0"
                   >
-                    <td className="px-6 py-4 font-semibold text-slate-800">
+                    <td className="px-6 py-4 font-semibold text-slate-800 dark:text-slate-100">
                       {tutor.tutorName}
                     </td>
-                    <td className="px-6 py-4 text-slate-600">
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300">
                       {tutor.subjectName}
                     </td>
-                    <td className="px-6 py-4 text-slate-600">
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300">
                       ৳{tutor.hourlyFee}
                     </td>
-                    <td className="px-6 py-4 text-slate-600">
+                    <td className="px-6 py-4 text-slate-600 dark:text-slate-300">
                       {tutor.totalSlot}
                     </td>
                     <td className="px-6 py-4">

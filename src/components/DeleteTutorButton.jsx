@@ -47,7 +47,7 @@ const DeleteTutorButton = ({ tutorId }) => {
               <AlertDialog.Heading>Delete Tutor</AlertDialog.Heading>
             </AlertDialog.Header>
             <AlertDialog.Body>
-              <p className="text-slate-600">
+              <p className="text-slate-600 dark:text-slate-300">
                 Are you sure you want to delete this tutor? This action
                 cannot be undone.
               </p>

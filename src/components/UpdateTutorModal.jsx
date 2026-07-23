@@ -10,7 +10,9 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const INPUT_STYLES =
-  "border-2 border-slate-200 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-12 bg-white w-full rounded-xl";
+  "border-2 border-slate-200 dark:border-slate-700 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-12 bg-white dark:bg-slate-800 text-slate-900 dark:text-white w-full rounded-xl";
+
+const LABEL_STYLES = "text-sm font-bold text-slate-700 dark:text-slate-300";
 
 const UpdateTutorModal = ({ tutor }) => {
   const router = useRouter();
@@ -61,7 +63,7 @@ const UpdateTutorModal = ({ tutor }) => {
       }
 
       toast.success("Tutor updated successfully!");
-      router.refresh(); // ✅ page reload ছাড়াই table আপডেট হবে
+      router.refresh();
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong!");
@@ -89,9 +91,7 @@ const UpdateTutorModal = ({ tutor }) => {
                 <form onSubmit={handleUpdate} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Tutor Name
-                      </label>
+                      <label className={LABEL_STYLES}>Tutor Name</label>
                       <Input
                         name="name"
                         required
@@ -100,9 +100,7 @@ const UpdateTutorModal = ({ tutor }) => {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Photo URL
-                      </label>
+                      <label className={LABEL_STYLES}>Photo URL</label>
                       <Input
                         name="photo"
                         type="url"
@@ -115,9 +113,7 @@ const UpdateTutorModal = ({ tutor }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Subject Name
-                      </label>
+                      <label className={LABEL_STYLES}>Subject Name</label>
                       <Input
                         name="subjectName"
                         required
@@ -126,9 +122,7 @@ const UpdateTutorModal = ({ tutor }) => {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Teaching Mode
-                      </label>
+                      <label className={LABEL_STYLES}>Teaching Mode</label>
                       <Input
                         name="teachingMode"
                         required
@@ -140,9 +134,7 @@ const UpdateTutorModal = ({ tutor }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Available Days
-                      </label>
+                      <label className={LABEL_STYLES}>Available Days</label>
                       <Input
                         name="availableDays"
                         required
@@ -151,9 +143,7 @@ const UpdateTutorModal = ({ tutor }) => {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Available Time
-                      </label>
+                      <label className={LABEL_STYLES}>Available Time</label>
                       <Input
                         name="availableTime"
                         required
@@ -165,9 +155,7 @@ const UpdateTutorModal = ({ tutor }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Hourly Fee
-                      </label>
+                      <label className={LABEL_STYLES}>Hourly Fee</label>
                       <Input
                         name="hourlyFee"
                         type="number"
@@ -178,9 +166,7 @@ const UpdateTutorModal = ({ tutor }) => {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Total Slot
-                      </label>
+                      <label className={LABEL_STYLES}>Total Slot</label>
                       <Input
                         name="totalSlot"
                         type="number"
@@ -194,9 +180,7 @@ const UpdateTutorModal = ({ tutor }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Institution
-                      </label>
+                      <label className={LABEL_STYLES}>Institution</label>
                       <Input
                         name="institution"
                         required
@@ -206,9 +190,7 @@ const UpdateTutorModal = ({ tutor }) => {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Session Start Date
-                      </label>
+                      <label className={LABEL_STYLES}>Session Start Date</label>
                       <DatePicker
                         selected={sessionStartDate}
                         onChange={(date) => setSessionStartDate(date)}
@@ -221,9 +203,7 @@ const UpdateTutorModal = ({ tutor }) => {
                     </div>
 
                     <div className="space-y-1">
-                      <label className="text-sm font-bold text-slate-700">
-                        Experience
-                      </label>
+                      <label className={LABEL_STYLES}>Experience</label>
                       <Input
                         name="experience"
                         required
@@ -234,9 +214,7 @@ const UpdateTutorModal = ({ tutor }) => {
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-sm font-bold text-slate-700">
-                      Location
-                    </label>
+                    <label className={LABEL_STYLES}>Location</label>
                     <Input
                       name="location"
                       required

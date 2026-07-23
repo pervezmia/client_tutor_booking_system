@@ -15,7 +15,7 @@ import TeachingMode from "@/components/TeachingMode";
 
 
 const INPUT_STYLES =
-  "border-2 border-slate-200 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white w-full rounded-2xl";
+  "border-2 border-slate-200 dark:border-slate-700 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white dark:bg-slate-800 text-slate-900 dark:text-white w-full rounded-2xl";
 
 
 
@@ -67,14 +67,14 @@ const AddTutorPage = () => {
   };
 
   return (
-    <div className="min-h-[80vh] bg-slate-50 py-12">
+    <div className="min-h-[80vh] bg-slate-50 dark:bg-slate-900 py-12">
       <div className="max-w-3xl mx-auto px-4">
-        <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-2xl space-y-8">
+        <div className="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-700 shadow-2xl space-y-8">
           <div className="text-center space-y-2">
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
               Add a <span className="text-brand-400">Tutor</span>
             </h2>
-            <p className="text-slate-500 font-medium">
+            <p className="text-slate-500 dark:text-slate-400 font-medium">
               Fill in the details below to list yourself as a tutor
             </p>
           </div>
@@ -84,7 +84,7 @@ const AddTutorPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="name" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Tutor Name
                 </label>
                 <Input
@@ -98,7 +98,7 @@ const AddTutorPage = () => {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="photo" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="photo" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Photo 
                 </label>
                 <Input
@@ -114,7 +114,7 @@ const AddTutorPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="name" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Subject Name
                 </label>
                 <Input
@@ -134,7 +134,7 @@ const AddTutorPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="availableDays" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="availableDays" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Available Days
                 </label>
                 <Input
@@ -148,7 +148,7 @@ const AddTutorPage = () => {
               </div>
               
               <div className="space-y-2">
-                <label htmlFor="availableTime" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="availableTime" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Available Time Slot
                 </label>
                 <Input
@@ -164,7 +164,7 @@ const AddTutorPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="hourlyFee" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="hourlyFee" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Hourly Fee
                 </label>
                 <Input
@@ -180,7 +180,7 @@ const AddTutorPage = () => {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="totalSlot" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="totalSlot" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Total Slot
                 </label>
                 <Input
@@ -197,7 +197,7 @@ const AddTutorPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold text-slate-700 ml-1">
+              <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                 Session Start Date
               </label>
               <DatePicker
@@ -214,7 +214,7 @@ const AddTutorPage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="institution" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="institution" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Institution
                 </label>
                 <Input
@@ -228,7 +228,7 @@ const AddTutorPage = () => {
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="experience" className="text-sm font-bold text-slate-700 ml-1">
+                <label htmlFor="experience" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                   Experience
                 </label>
                 <Input
@@ -243,7 +243,7 @@ const AddTutorPage = () => {
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="location" className="text-sm font-bold text-slate-700 ml-1">
+              <label htmlFor="location" className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
                 Location (Area/City)
               </label>
               <Input

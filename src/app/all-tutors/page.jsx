@@ -23,7 +23,7 @@ const TutorsPage = async ({searchParams}) => {
 
 
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
             <TutorsHeader></TutorsHeader>
 
 
@@ -31,7 +31,7 @@ const TutorsPage = async ({searchParams}) => {
 
                 <div className="flex justify-between items-center space-y-5 mb-12">
                     <Link href={"/all-tutors"}>
-                    <h2 className="text-2xl font-bold flex items-center gap-2">
+                    <h2 className="text-2xl font-bold flex items-center gap-2 text-slate-900 dark:text-white">
                         <Users className="w-6 h-6 text-brand-500" />
                         All Tutors
                     </h2>

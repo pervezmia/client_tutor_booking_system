@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import moment from "moment";
 import { headers } from "next/headers";
+import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -97,17 +98,17 @@ const TutorDetailsPage = async ({ params }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
       <main className="max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <Link
           href="/all-tutors"
-          className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-brand-400 transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-brand-400 transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to all tutors
         </Link>
 
-        <div className="bg-white rounded-[2.5rem] border border-slate-200 shadow-2xl overflow-hidden">
+        <div className="bg-white dark:bg-slate-800 rounded-[2.5rem] border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-5">
             {/* Photo */}
             <div className="md:col-span-2 relative aspect-square md:aspect-auto">
@@ -122,16 +123,16 @@ const TutorDetailsPage = async ({ params }) => {
             {/* Info */}
             <div className="md:col-span-3 p-8 sm:p-10 space-y-6">
               <div className="space-y-2">
-                <span className="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-bold rounded-full">
+                <span className="inline-block px-3 py-1 bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-400 text-xs font-bold rounded-full">
                   {singleTutor?.subjectName}
                 </span>
-                <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+                <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">
                   {singleTutor?.tutorName}
                 </h1>
                 <div className="flex items-center gap-2 text-brand-500 font-bold text-xl">
                   <DollarSign className="w-5 h-5" />
                   {singleTutor?.hourlyFee}
-                  <span className="text-sm font-medium text-slate-400">
+                  <span className="text-sm font-medium text-slate-400 dark:text-slate-500">
                     / hour
                   </span>
                 </div>
@@ -141,14 +142,14 @@ const TutorDetailsPage = async ({ params }) => {
                 {details.map(({ icon: Icon, label, value }) => (
                   <div
                     key={label}
-                    className="flex items-start gap-3 bg-slate-50 rounded-2xl p-4"
+                    className="flex items-start gap-3 bg-slate-50 dark:bg-slate-900 rounded-2xl p-4"
                   >
                     <Icon className="w-5 h-5 text-brand-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+                      <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                         {label}
                       </p>
-                      <p className="text-sm font-semibold text-slate-800">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                         {value || "Not specified"}
                       </p>
                     </div>

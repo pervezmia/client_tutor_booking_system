@@ -30,18 +30,22 @@ const FilterBar = () => {
       placeholder="Sort by price"
       value={searchParams.get("sortBy") || null}
       onChange={handleSortChange}
-      
     >
       <Label className="sr-only">Sort by price</Label>
-      <Select.Trigger className="rounded-full border border-slate-200 shadow-sm data-[hover=true]:border-orange-500">
-        <ArrowDownWideNarrow className="w-4 h-4 text-slate-400 mr-2" />
+      <Select.Trigger className="rounded-full border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-sm data-[hover=true]:border-brand-500">
+        <ArrowDownWideNarrow className="w-4 h-4 text-slate-400 dark:text-slate-500 mr-2" />
         <Select.Value />
         <Select.Indicator />
       </Select.Trigger>
-      <Select.Popover>
+      <Select.Popover className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
         <ListBox>
           {sortOptions.map((option) => (
-            <ListBox.Item key={option.key} id={option.key} textValue={option.label}>
+            <ListBox.Item
+              key={option.key}
+              id={option.key}
+              textValue={option.label}
+              className="text-slate-700 dark:text-slate-200 data-[hover=true]:bg-slate-100 dark:data-[hover=true]:bg-slate-700"
+            >
               {option.label}
             </ListBox.Item>
           ))}

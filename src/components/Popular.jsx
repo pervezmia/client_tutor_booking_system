@@ -10,7 +10,7 @@ const Popular = async () => {
     // console.log(popularTutor); 
 
     return (
-        <div className="min-h-screen bg-slate-50">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900">
 
             {/* Header */}
             {/* <TutorsHeader /> */}
@@ -20,7 +20,7 @@ const Popular = async () => {
 
                 <div className="flex justify-between items-center mb-12">
 
-                    <h2 className="text-2xl font-bold flex items-center gap-2">
+                    <h2 className="text-2xl font-bold flex items-center gap-2 text-slate-900 dark:text-white">
                         <Users className="w-6 h-6 text-brand-500" />
                         Popular Tutors
                     </h2>

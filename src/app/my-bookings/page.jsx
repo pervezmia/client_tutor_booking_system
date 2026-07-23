@@ -31,11 +31,11 @@ const MyBookingsSessions = async () => {
     
     // console.log(bookedData);
     return (
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto px-4 py-12 bg-slate-50 dark:bg-slate-900">
             <div className="flex flex-col md:flex-row gap-8 items-start">
                 {/* Profile */}
                 <div className="w-full md:w-1/4">
-                    <div className="p-6 bg-white border rounded-2xl">
+                    <div className="p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl">
                         <Image
                             src={session?.user?.image}
                             alt={session?.user?.name}
@@ -44,10 +44,10 @@ const MyBookingsSessions = async () => {
                             className="w-24 h-24 rounded-full"
                         />
 
-                        <h2 className="text-xl font-bold mt-4">
+                        <h2 className="text-xl font-bold mt-4 text-slate-900 dark:text-white">
                             {session?.user?.name}
                         </h2>
-                        <p className="text-sm text-slate-500">
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
                             {session?.user?.email}
                         </p>
                     </div>
@@ -55,7 +55,7 @@ const MyBookingsSessions = async () => {
 
                 {/* Booked  */}
                 <div className="w-full md:w-3/4">
-                    <h1 className="text-3xl font-bold mb-6">My Enrolled Courses</h1>
+                    <h1 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">My Enrolled Courses</h1>
 
                     <div className="space-y-4">
                     

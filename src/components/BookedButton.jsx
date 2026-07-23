@@ -83,7 +83,7 @@ const BookedButton = ({ singleTutor, formData }) => {
 
     router.push("/my-bookings");
   };
-  console.log(handleButton);
+  // console.log(handleButton);
   return (
     <div>
       <Button onPress={handleButton} slot="close" className=" bg-brand-500 text-white font-bold hover:bg-brand-600">

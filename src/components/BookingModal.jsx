@@ -41,13 +41,13 @@ const BookingModal = ({ singleTutor, isBookingAvailable, isSlotAvailable }) => {
   return (
     <Modal>
       {!isBookingAvailable && (
-        <p className="text-red-500 text-sm font-semibold mb-2 text-center">
+        <p className="text-red-500 dark:text-red-400 text-sm font-semibold mb-2 text-center">
           Booking is closed. This session has already started.
         </p>
       )}
 
       {isBookingAvailable && !isSlotAvailable && (
-        <p className="text-red-500 text-sm font-semibold mb-2 text-center">
+        <p className="text-red-500 dark:text-red-400 text-sm font-semibold mb-2 text-center">
           No available slots left.
         </p>
       )}
