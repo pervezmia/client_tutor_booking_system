@@ -1,6 +1,6 @@
 
-export const fetchTutors = async () => {
-    const res = await fetch (`${process.env.NEXT_PUBLIC_API_URL}/all-tutors`, {
+export const fetchTutors = async (searchTerm = "", sortBy = "") => {
+    const res = await fetch (`${process.env.NEXT_PUBLIC_API_URL}/all-tutors?search=${searchTerm}&sortBy=${sortBy}`, {
         cache: "no-store"
     });
 

@@ -63,7 +63,7 @@ export function Navbar() {
     <nav
       className={`sticky top-0 w-full z-50 transition-all duration-300 
         
-        bg-white/70 backdrop-blur-md shadow-sm py-2 
+        backdrop-blur-md shadow-sm  
           bg-slate-50 py-4`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -143,8 +143,9 @@ export function Navbar() {
                           {session?.user?.email}
                         </p>
                       </div>
+                      
                       <Link
-                        href="/profile"
+                        href="/my-bookings"
                         className="px-4 py-2 text-sm hover:bg-muted flex items-center gap-3 transition-colors"
                       >
                         <User className="w-4 h-4" /> Profile

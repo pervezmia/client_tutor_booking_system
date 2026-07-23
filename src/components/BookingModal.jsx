@@ -55,7 +55,7 @@ const BookingModal = ({ singleTutor, isBookingAvailable, isSlotAvailable }) => {
         color="primary"
         size="lg"
         isDisabled={!canBook}
-        className="w-full h-14 text-lg font-black rounded-2xl shadow-xl shadow-brand-400/20"
+        className="w-full h-14 text-lg rounded-2xl shadow-xl shadow-brand-400/20  bg-brand-500 text-white font-bold hover:bg-brand-600"
       >
         Book This Tutor
       </Button>

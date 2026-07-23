@@ -34,7 +34,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="p-2 bg-blue-600 rounded-xl">
+              <div className="p-2 bg-brand-600 rounded-xl">
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
               <span className="font-extrabold text-xl text-white tracking-tight">

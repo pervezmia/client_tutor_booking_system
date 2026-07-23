@@ -85,7 +85,7 @@ const Hero = () => {
                       
                       color="primary"
                       size="lg"
-                      className="h-14 px-10 text-lg font-bold rounded-full shadow-2xl shadow-brand-400/30 group"
+                      className="h-14 px-10 text-lg rounded-full shadow-2xl shadow-brand-400/30 group  bg-brand-500 text-white font-bold hover:bg-brand-600"
                     >
                       Find a Tutor{" "}
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />

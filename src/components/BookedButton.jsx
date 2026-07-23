@@ -86,7 +86,7 @@ const BookedButton = ({ singleTutor, formData }) => {
   console.log(handleButton);
   return (
     <div>
-      <Button onPress={handleButton} slot="close">
+      <Button onPress={handleButton} slot="close" className=" bg-brand-500 text-white font-bold hover:bg-brand-600">
         Confirm tutor Book
       </Button>
     </div>

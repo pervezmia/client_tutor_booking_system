@@ -6,7 +6,7 @@ import Link from "next/link";
 import CancelButton from "./CancelButton";
 
 const BookedCard = ({bookedData}) => {
-  // console.log(bookedData);
+  console.log(bookedData);
     return (
          <>
       <div className="w-full md:w-3/4">
@@ -40,10 +40,10 @@ const BookedCard = ({bookedData}) => {
                     <p className="text-sm text-slate-500">
                       Subject: {item?.subject}
                     </p>
-                    {/* <p className="text-sm text-slate-500">
+                    <p className="text-sm text-slate-500">
                       Student: {item?.studentName}
-                    </p> */}
-                    {/* <p className="text-sm text-slate-500">Gmail: {item?.studentEmail}</p> */}
+                    </p>
+                    <p className="text-sm text-slate-500">Student gmail: {item?.studentEmail}</p>
                   </div>
 
                   <div className="mt-2 flex justify-between items-center">
