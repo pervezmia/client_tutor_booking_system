@@ -80,7 +80,7 @@ const DateFilterBar = () => {
       <Link href={"/all-tutors"}>
             <Button className={DATE_INPUT_STYLES} >
               
-              All Tutors
+              Reset Filter
             </Button>
           </Link>
     </div>

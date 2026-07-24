@@ -96,6 +96,8 @@ const BookedCard = ({ bookedData }) => {
           </table>
         </div>
       )}
+
+      
     </div>
   );
 };
