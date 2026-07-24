@@ -34,8 +34,8 @@ const DeleteTutorButton = ({ tutorId }) => {
 
   return (
     <AlertDialog>
-      <Button color="danger" variant="light" size="sm" className="gap-1">
-        <Trash2 className="w-4 h-4" />
+      <Button color="danger" variant="light" size="sm" className="gap-1 text-red-800 dark:text-red-300">
+        <Trash2 className="w-4 h-4 " />
         Delete
       </Button>
       <AlertDialog.Backdrop>
@@ -60,7 +60,7 @@ const DeleteTutorButton = ({ tutorId }) => {
                 onClick={handleDelete}
                 slot="close"
                 color="danger"
-                className="font-bold"
+                className="font-bold bg-red-200 dark:bg-red-900 text-red-800 dark:text-white"
               >
                 Yes, Delete
               </Button>

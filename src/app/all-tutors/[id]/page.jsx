@@ -19,12 +19,16 @@ import Link from "next/link";
 
 export const generateMetadata = async ({params}) => {
   const {id} = await params;
+
+  const {token} = await auth.api.getToken({
+    headers: await headers(),
+  });
   
-  const singleTutor = await fetchSingleTutor(id);
+  const singleTutor = await fetchSingleTutor(id, token);
   
   return {
-    title: singleTutor.subjectName,
-    description: singleTutor.tutorName,
+    title: singleTutor.subjectName || "Tutor Details",
+    description: singleTutor.tutorName || "View tutor details and book a session.",
   }
 
 }
