@@ -21,7 +21,7 @@ if(!session && !session?.user){
 // export default function proxy(request) { ... }
  
 export const config = {
-  matcher: ["/all-tutors/:id", "/add-tutor", "/my-tutors", "/my-bookings" ],
+  matcher: ["/all-tutors/:id", "/add-tutor", "/my-tutors", "/my-bookings", "/profile" ],
 }
 
 

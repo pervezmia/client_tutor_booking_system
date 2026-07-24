@@ -9,7 +9,7 @@ import Image from "next/image";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { signIn, signUp } from "@/lib/auth-client";
+import { signIn, signOut, signUp } from "@/lib/auth-client";
 
 const validatePassword = (password) => {
   if (password.length < 6) {
@@ -50,7 +50,9 @@ const RegisterPage = () => {
       return;
     }
     if (data) {
-      toast.success("Registered successfully!");
+      await signOut();
+      toast.success("Registered successfully! Please log in.");
+      router.push("/login");
     }
     router.push("/login");
   };
@@ -179,7 +181,8 @@ const RegisterPage = () => {
                   className="border-2 border-slate-200 dark:border-slate-700 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-14 bg-white dark:bg-slate-800 text-slate-900 dark:text-white w-full rounded-2xl"
                 />
                 <p className="text-xs text-slate-400 dark:text-slate-500 ml-1">
-                  At least 6 characters, with an uppercase and a lowercase letter.
+                  At least 6 characters, with an uppercase and a lowercase
+                  letter.
                 </p>
               </div>
 
