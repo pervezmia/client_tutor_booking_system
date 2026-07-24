@@ -1,26 +1,35 @@
 import { Label, ListBox, Select } from "@heroui/react";
 
-const modes = [
-  { id: "online", mode: "Online" },
-  { id: "offline", mode: "Offline" },
-  { id: "both", mode: "Both" },
+const subjects = [
+  { id: "mathematics", subject: "Mathematics" },
+  { id: "physics", subject: "Physics" },
+  { id: "chemistry", subject: "Chemistry" },
+  { id: "biology", subject: "Biology" },
+  { id: "english", subject: "English" },
+  { id: "programming", subject: "Programming" },
+  { id: "economics", subject: "Economics" },
+  { id: "accounting", subject: "Accounting" },
+  { id: "bangla", subject: "Bangla" },
+  { id: "ict", subject: "ICT" },
 ];
 
-const SelectSubject = ({ INPUT_STYLES }) => {
+const SelectSubject = ({ INPUT_STYLES, defaultValue }) => {
   return (
     <>
-      <Label>Subject</Label>
+      <Label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">
+        Subject
+      </Label>
       <div>
-        <Select name="selectSubject" placeholder="Select one">
+        <Select name="subjectName" placeholder="Select one" defaultValue={defaultValue}>
           <Select.Trigger className={INPUT_STYLES}>
             <Select.Value />
             <Select.Indicator />
           </Select.Trigger>
           <Select.Popover>
             <ListBox>
-              {modes.map((mode, index) => (
-                <ListBox.Item key={index} id={mode.id} textValue={mode.mode}>
-                  {mode.mode}
+              {subjects.map((item) => (
+                <ListBox.Item key={item.id} id={item.subject} textValue={item.subject}>
+                  {item.subject}
                   <ListBox.ItemIndicator />
                 </ListBox.Item>
               ))}

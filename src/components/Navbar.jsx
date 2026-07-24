@@ -55,7 +55,8 @@ export function Navbar() {
     router.push("/");
   };
 
-  const navLinks = [...PUBLIC_NAV_LINKS, ...AUTH_NAV_LINKS];
+  // const navLinks = [...PUBLIC_NAV_LINKS, ...AUTH_NAV_LINKS];
+  const navLinks = session ? [...PUBLIC_NAV_LINKS, ...AUTH_NAV_LINKS] : PUBLIC_NAV_LINKS;
 
   return (
     <nav

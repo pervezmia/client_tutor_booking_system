@@ -6,12 +6,12 @@ const modes = [
   { id: "both", mode: "Both" },
 ];
 
-const TeachingMode = ({ INPUT_STYLES }) => {
+const TeachingMode = ({ INPUT_STYLES, defaultValue}) => {
   return (
     <>
       <Label className="text-sm font-bold text-slate-700 ml-1">Teaching Mode</Label>
       <div>
-        <Select name="teachingMode" placeholder="Select one">
+        <Select name="teachingMode" placeholder="Select one"  defaultValue={defaultValue}>
           <Select.Trigger className={INPUT_STYLES}>
             <Select.Value />
             <Select.Indicator />

@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import { Pencil } from "lucide-react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import TeachingMode from "./TeachingMode";
+import SelectSubject from "./SelectSubject";
 
 const INPUT_STYLES =
   "border-2 border-slate-200 dark:border-slate-700 hover:border-brand-400/50 focus-within:border-brand-400 transition-all duration-300 h-12 bg-white dark:bg-slate-800 text-slate-900 dark:text-white w-full rounded-xl";
@@ -113,21 +115,15 @@ const UpdateTutorModal = ({ tutor }) => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className={LABEL_STYLES}>Subject Name</label>
-                      <Input
-                        name="subjectName"
-                        required
+                      <SelectSubject
+                        INPUT_STYLES={INPUT_STYLES}
                         defaultValue={tutor.subjectName}
-                        className={INPUT_STYLES}
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className={LABEL_STYLES}>Teaching Mode</label>
-                      <Input
-                        name="teachingMode"
-                        required
+                      <TeachingMode
+                        INPUT_STYLES={INPUT_STYLES}
                         defaultValue={tutor.teachingMode}
-                        className={INPUT_STYLES}
                       />
                     </div>
                   </div>
