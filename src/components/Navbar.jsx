@@ -104,7 +104,7 @@ export function Navbar() {
                 <Link href="/register">
                   <Button
                     color="primary"
-                    className="font-bold rounded-full px-8 shadow-lg shadow-brand-400/20"
+                    className="shadow-xl shadow-brand-400/20  bg-brand-500  text-white font-bold hover:bg-brand-600"
                   >
                     Join Free
                   </Button>
